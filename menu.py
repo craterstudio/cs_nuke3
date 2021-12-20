@@ -7,7 +7,7 @@ def gizmo_list_do():
    '''
         gizmo_list_do do a gizmo listing
    ''' 
-    Dbg d=Dbg()
+   Dbg d=Dbg()
 
     dbg.print("NUKE MENU PY ","{} {}".format(os.environ["NK_PATH_GIZMOS"],os.environ["NK_PATH_NK"]))
 
