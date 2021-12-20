@@ -5,4 +5,4 @@ if __name__ == "__main__":
         menu.py called any time for nuke gui
     '''
     print(">>> NUKE MENU PY")
-    print(">>> {} {}".format(os.environ["NUKE_PATH_GIZMOS"],os.environ["NUKE_PATH_NK"]))
+    print(">>> {} {}".format(os.environ["NK_PATH_GIZMOS"],os.environ["NK_PATH_NK"]))
