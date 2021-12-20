@@ -1,4 +1,6 @@
 import os
+from gizmo_list import GizmoList
+from gizmo_add import GizmoAdd
 
 if __name__ == "__main__":
     '''
