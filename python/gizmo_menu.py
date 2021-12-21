@@ -40,9 +40,12 @@ class GizmoMenu(object):
             # add initial menu item
             parent=mnuu.addMenu(dirrc.popleft())
 
-            for len(dircc)>0:
-                # add menu items
-                parent=parent.addMenu(dirrc.popleft())
+            while True:
+                if len(dircc)>0:
+                    # add menu items
+                    parent=parent.addMenu(dirrc.popleft())
+                    continue
+                break
 
             # add command for menu
             parent.addCommand(filename,"nuke.createNode('{}')".format(file))
