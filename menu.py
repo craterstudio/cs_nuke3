@@ -8,8 +8,14 @@ def gizmo_list_do():
         gizmo_list_do do a gizmo listing
     ''' 
     d=Dbg()
+    gizmoList=GizmoList()
+    gizmoListt=None
 
     d.print("NUKE MENU PY ","{} {}".format(os.environ["NK_PATH_GIZMOS"],os.environ["NK_PATH_NK"]))
+
+    gizmoListt=gizmoList.doStr("dir /a-D /S /B path",os.environ["NK_PATH_GIZMOS"])
+
+    d.print("NUKE MENU PY ","{}".format(gizmoListt.getStr()))
 
 if __name__ == "__main__":
     '''
