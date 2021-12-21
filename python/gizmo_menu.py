@@ -42,7 +42,7 @@ class GizmoMenu(object):
             parent=mnuu.addMenu(dirrc.popleft())
 
             while True:
-                if len(dircc)>0:
+                if len(dirrc)>0:
                     # add menu items
                     parent=parent.addMenu(dirrc.popleft())
                     continue
