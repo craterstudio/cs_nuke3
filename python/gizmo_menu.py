@@ -21,7 +21,7 @@ class GizmoMenu(object):
             class GizmoMenu set str
         '''
         self.str=strr
-    def doStr(self,ln,mnu="Nodes"):
+    def doStr(self,ln,mnu="Nodes",ext=".gizmo"):
         '''
             class GizmoMenu do str
         '''
@@ -37,10 +37,14 @@ class GizmoMenu(object):
             slc = item[(ln+1):]
             parent += slc
             parent += ";"
+            # path split head tail, tail file name including extension
             drr,file=os.path.split(slc)
+            filename,fileext=os.path.splitext(file)
+            if fileext != ext:
+                # need gizmo
+                continue
             slcq = deque(drr.split(os.sep))
             mnprt=mn.addMenu(slcq.popleft())
-            filename,fileext=os.path.splitext(file)
             while True:
                 # elements in q
                 if len(slcq)<=0:
