@@ -27,11 +27,24 @@ class GizmoMenu(object):
         '''
         mnuu=nuke.toolbar(mnu)
         tmplstt=self.str.split("\n")
+        slc=""
+        slcq=""
         parent=""
+        mn=nuke.toolbar(mnu)
+        mnprt=""
 
         for item in tmplstt:
             # go through files
-            parent += item[(ln+1):]
+            slc = item[(ln+1):]
+            parent += slc
             parent += ";"
+            drr,file=os.path.split(slc)
+            slcq = deque(drr.split(os.sep))
+            mnprt=mn.addMenu(slcq.popleft())
+            while True:
+                # elements in q
+                if len(slcq)<0:
+                    break
+                mnprt=mnprt.addMenu(slcq.popleft())
 
         return GizmoMenu(parent)
