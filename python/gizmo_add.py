@@ -1,4 +1,5 @@
 import os
+import nuke
 
 class GizmoAdd(object):
     '''
@@ -27,6 +28,7 @@ class GizmoAdd(object):
         tmpsp=";"
         tmpdt={}
         tmppt=""
+        tmpdtlst=None
 
         for item in tmplstt:
             # item is a file including full path
@@ -38,4 +40,11 @@ class GizmoAdd(object):
                 # item not in dictionary add it
                 # need unique items
                 tmpdt[tmppt] = 1
+
+        tmpdtlst=list(tmpdt)
+
+        for item in tmpdtlst:
+            # add directories
+            nuke.pluginAddPath(item)
+
         return GizmoAdd(tmpsp.join(list(tmpdt)))
