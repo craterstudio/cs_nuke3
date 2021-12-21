@@ -1,3 +1,5 @@
+import os
+
 class GizmoAdd(object):
     '''
         class GizmoAdd add gizmo to environment
@@ -23,5 +25,17 @@ class GizmoAdd(object):
         '''
         tmplstt=self.str.split("\n")
         tmpsp=";"
+        tmpdt={}
+        tmppt=""
 
-        return GizmoAdd(tmpsp.join(tmplstt))
+        for item in tmplstt:
+            # item is a file including full path
+            tmppt=os.path.dirname(item)
+            if tmppt in tmpdt:
+                # item in dictionary
+                tmpdt[item] += 1
+            else
+                # item not in dictionary add it
+                # need unique items
+                tmpdt[item] = 1
+        return GizmoAdd(tmpsp.join(list(tmpdt)))
