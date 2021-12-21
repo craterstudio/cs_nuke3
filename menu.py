@@ -14,8 +14,9 @@ def gizmo_list_do():
     gizmoAdd=None
     gizmoAddd=None
     gizmoMenu=None
+    gizmoMenuu=None
 
-    d.print("NUKE MENU PY ","{} {}".format(os.environ["NK_PATH_GIZMOS"],os.environ["NK_PATH_NK"]))
+    d.print("NUKE MENU PY ","{} {} {} {}".format(os.environ["NK_PATH_GIZMOS"],os.environ["NK_PATH_NK"],len(os.environ["NK_PATH_GIZMOS"]),len(os.environ["NK_PATH_NK"])))
 
     gizmoListt=gizmoList.doStr("dir /a-D /S /B path",os.environ["NK_PATH_GIZMOS"])
 
@@ -27,7 +28,9 @@ def gizmo_list_do():
     d.print("NUKE MENU PY ","{}".format(gizmoAddd.getStr()))
 
     gizmoMenu=GizmoMenu(gizmoListt.getStr())
-    gizmoMenu.doStr(os.environ["NK_PATH_GIZMOS"])
+    gizmoMenuu=gizmoMenu.doStr(len(os.environ["NK_PATH_GIZMOS"]))
+
+    d.print("NUKE MENU PY ","{}".format(gizmoMenuu.getStr()))
 
 if __name__ == "__main__":
     '''

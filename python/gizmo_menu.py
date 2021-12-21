@@ -21,7 +21,7 @@ class GizmoMenu(object):
             class GizmoMenu set str
         '''
         self.str=strr
-    def doStr(self,splt,mnu="Nodes"):
+    def doStr(self,ln,mnu="Nodes"):
         '''
             class GizmoMenu do str
         '''
@@ -31,22 +31,7 @@ class GizmoMenu(object):
 
         for item in tmplstt:
             # go through files
-            dirr,file=os.path.split(item)
-            # file name extension
-            filename,fileext=os.path.splitext(file)
-            # remove initial path
-            dirrb=dirr[(len(splt)+1):]
-            # split into parts
-            dirrc=deque(dirrb.split(os.sep))
-            # add initial menu item
-            parent=mnuu.addMenu(dirrc.popleft())
+            parent += item[(ln+1):]
+            parent += ";"
 
-            while True:
-                if len(dirrc)>0:
-                    # add menu items
-                    parent=parent.addMenu(dirrc.popleft())
-                    continue
-                break
-
-            # add command for menu
-            parent.addCommand(filename,"nuke.createNode('{}')".format(file))
+        return GizmoMenu(parent)
