@@ -43,7 +43,7 @@ class GizmoMenu(object):
             mnprt=mn.addMenu(slcq.popleft())
             while True:
                 # elements in q
-                if len(slcq)<0:
+                if len(slcq)<=0:
                     break
                 mnprt=mnprt.addMenu(slcq.popleft())
 
