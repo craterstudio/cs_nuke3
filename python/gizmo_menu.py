@@ -25,7 +25,6 @@ class GizmoMenu(object):
         '''
             class GizmoMenu do str
         '''
-        mnuu=nuke.toolbar(mnu)
         tmplstt=self.str.split("\n")
         slc=""
         slcq=""
@@ -41,10 +40,12 @@ class GizmoMenu(object):
             drr,file=os.path.split(slc)
             slcq = deque(drr.split(os.sep))
             mnprt=mn.addMenu(slcq.popleft())
+            filename,fileext=os.path.splitext(file)
             while True:
                 # elements in q
                 if len(slcq)<=0:
                     break
                 mnprt=mnprt.addMenu(slcq.popleft())
+            mnprt.addCommand(filename,"nuke.createNode('{}')".format(file))
 
         return GizmoMenu(parent)
