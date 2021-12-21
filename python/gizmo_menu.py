@@ -35,9 +35,9 @@ class GizmoMenu(object):
             # file name extension
             filename,fileext=os.path.splitext(file)
             # remove initial path
-            dirrb=dirr.split(splt)
+            dirrb=dirr[(len(splt)+1):]
             # split into parts
-            dirrc=deque(dirrb[1:].split(os.sep))
+            dirrc=deque(dirrb.split(os.sep))
             # add initial menu item
             parent=mnuu.addMenu(dirrc.popleft())
 
