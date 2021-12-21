@@ -1,3 +1,6 @@
+import os
+import nuke
+
 class GizmoMenu(object):
     '''
         class GizmoMenu add gizmos to menu
@@ -17,8 +20,29 @@ class GizmoMenu(object):
             class GizmoMenu set str
         '''
         self.str=strr
-    def doStr(self):
+    def doStr(self,splt,mnu="Nodes"):
         '''
             class GizmoMenu do str
         '''
-        pass
+        mnuu=nuke.toolbar(mnu)
+        tmplstt=self.str.split("\n")
+        parent=""
+
+        for item in tmplstt:
+            # go through files
+            dirr,file=os.path.split(item)
+            # file name extension
+            filename,fileext=os.path.splitext(file)
+            # remove initial path
+            dirra,dirrb=dirr.split(splt)
+            # split into parts
+            dirrc=dirrb[1:].split(os.sep)
+            # add initial menu item
+            parent=mnuu.addMenu(dirrc.popleft())
+
+            for len(dircc)>0:
+                # add menu items
+                parent=parent.addMenu(dirrc.popleft())
+
+            # add command for menu
+            parent.addCommand(filename,"nuke.createNode('{}')".format(file))

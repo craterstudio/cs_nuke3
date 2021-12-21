@@ -2,6 +2,7 @@ import os
 from dbg import Dbg
 from gizmo_list import GizmoList
 from gizmo_add import GizmoAdd
+from gizmo_menu import GizmoMenu
 
 def gizmo_list_do():
     '''
@@ -12,6 +13,7 @@ def gizmo_list_do():
     gizmoListt=None
     gizmoAdd=None
     gizmoAddd=None
+    gizmoMenu=None
 
     d.print("NUKE MENU PY ","{} {}".format(os.environ["NK_PATH_GIZMOS"],os.environ["NK_PATH_NK"]))
 
@@ -23,6 +25,9 @@ def gizmo_list_do():
     gizmoAddd=gizmoAdd.doStr()
 
     d.print("NUKE MENU PY ","{}".format(gizmoAddd.getStr()))
+
+    gizmoMenu=GizmoMenu(gizmoListt.getStr())
+    gizmoMenu.doStr(os.environ["NK_PATH_GIZMOS"])
 
 if __name__ == "__main__":
     '''
