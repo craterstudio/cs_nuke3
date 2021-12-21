@@ -33,9 +33,9 @@ class GizmoAdd(object):
             tmppt=os.path.dirname(item)
             if tmppt in tmpdt:
                 # item in dictionary
-                tmpdt[item] += 1
+                tmpdt[tmppt] += 1
             else:
                 # item not in dictionary add it
                 # need unique items
-                tmpdt[item] = 1
+                tmpdt[tmppt] = 1
         return GizmoAdd(tmpsp.join(list(tmpdt)))
