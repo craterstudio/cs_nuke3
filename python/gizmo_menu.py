@@ -1,3 +1,4 @@
+from collections import deque
 import os
 import nuke
 
@@ -36,7 +37,7 @@ class GizmoMenu(object):
             # remove initial path
             dirra,dirrb=dirr.split(splt)
             # split into parts
-            dirrc=dirrb[1:].split(os.sep)
+            dirrc=deque(dirrb[1:].split(os.sep))
             # add initial menu item
             parent=mnuu.addMenu(dirrc.popleft())
 
