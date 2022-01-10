@@ -5,6 +5,14 @@ from gizmo_list import GizmoList
 from gizmo_add import GizmoAdd
 from gizmo_menu import GizmoMenu
 
+def deadline_menu_do():
+    '''
+        deadline_menu_do add deadline submitter to menu
+    ''' 
+    menubar=nuke.menu("Nuke")
+    thinkboxmenu=menubar.addMenu("&Thinkbox")
+    thinkboxmenu.addCommand("Submit nuke to deadline", DeadlineNukeClient.main, "")
+
 def gizmo_list_do():
     '''
         gizmo_list_do do a gizmo listing
@@ -33,8 +41,16 @@ def gizmo_list_do():
 
     d.print("NUKE MENU PY ","{}".format(gizmoMenuu.getStr()))
 
+
+def main():
+    '''
+        main run for main method
+    ''' 
+    deadline_menu_do()
+    gizmo_list_do()
+
 if __name__ == "__main__":
     '''
         menu.py called any time for nuke gui
     '''
-    gizmo_list_do()
+    main()
