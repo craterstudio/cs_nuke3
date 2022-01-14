@@ -1,4 +1,5 @@
 import os
+import nuke
 import DeadlineNukeClient
 from dbg import Dbg
 from gizmo_list import GizmoList
