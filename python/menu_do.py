@@ -26,7 +26,7 @@ def gizmo_list_do():
     gizmoMenu=None
     gizmoMenuu=None
 
-    d.print("NUKE MENU PY ","{} {} {} {}".format(os.environ["NK_PATH_GIZMOS"],os.environ["NK_PATH_NK"],len(os.environ["NK_PATH_GIZMOS"]),len(os.environ["NK_PATH_NK"])))
+    d.print("NUKE MENU PY ","{} {} ".format(os.environ["NK_PATH_GIZMOS"],len(os.environ["NK_PATH_GIZMOS"])))
 
     gizmoListt=gizmoList.doStr("dir /a-D /S /B path",os.environ["NK_PATH_GIZMOS"])
 
@@ -54,7 +54,7 @@ def nk_list_do():
     gizmoMenu=None
     gizmoMenuu=None
 
-    d.print("NUKE MENU PY ","{} {} {} {}".format(os.environ["NK_PATH_GIZMOS"],os.environ["NK_PATH_NK"],len(os.environ["NK_PATH_GIZMOS"]),len(os.environ["NK_PATH_NK"])))
+    d.print("NUKE MENU PY ","{} {} ".format(os.environ["NK_PATH_GIZMOS"],len(os.environ["NK_PATH_GIZMOS"])))
 
     gizmoListt=gizmoList.doStr("dir /a-D /S /B path",os.environ["NK_PATH_GIZMOS"])
 
