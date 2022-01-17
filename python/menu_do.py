@@ -42,6 +42,34 @@ def gizmo_list_do():
 
     d.print("NUKE MENU PY ","{}".format(gizmoMenuu.getStr()))
 
+def nk_list_do():
+    '''
+        nk_list_do do a nk listing
+    ''' 
+    d=Dbg()
+    gizmoList=GizmoList()
+    gizmoListt=None
+    gizmoAdd=None
+    gizmoAddd=None
+    gizmoMenu=None
+    gizmoMenuu=None
+
+    d.print("NUKE MENU PY ","{} {} {} {}".format(os.environ["NK_PATH_GIZMOS"],os.environ["NK_PATH_NK"],len(os.environ["NK_PATH_GIZMOS"]),len(os.environ["NK_PATH_NK"])))
+
+    gizmoListt=gizmoList.doStr("dir /a-D /S /B path",os.environ["NK_PATH_GIZMOS"])
+
+    d.print("NUKE MENU PY ","{}".format(gizmoListt.getStr()))
+
+    gizmoAdd=GizmoAdd(gizmoListt.getStr())
+    gizmoAddd=gizmoAdd.doStr()
+
+    d.print("NUKE MENU PY ","{}".format(gizmoAddd.getStr()))
+
+    gizmoMenu=GizmoMenu(gizmoListt.getStr())
+    gizmoMenuu=gizmoMenu.doStr(len(os.environ["NK_PATH_GIZMOS"]),"Nodes",".nk")
+
+    d.print("NUKE MENU PY ","{}".format(gizmoMenuu.getStr()))
+
 
 def main():
     '''
@@ -49,4 +77,5 @@ def main():
     ''' 
     deadline_menu_do()
     gizmo_list_do()
+    nk_list_do()
 
